@@ -1,0 +1,31 @@
+{% extends 'community/layout.html' %}
+
+
+{% block style%}
+    <link href="static/community/create.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %} Create {% endblock %}
+
+{% block body %}
+    <h1>Create a new library!</h1>
+    <form method="post" action="{% url 'create'%}" id="textarea">
+        {% csrf_token %}
+        <h4>What is the name of your library?</h4>
+        {{ form.title}}<br>
+        <h4>Tell us more about it:</h4>
+        {{ form.description}}<br>
+        <h4>Is your library public or private?</h4>
+        {{ form.privacy }}<br>
+        <!--
+        <input type="text" placeholder="The title of your library"><br>
+        <div id="form">
+            <input type="radio" name="privacy" value="public" id="public">
+            <label for="public">Public</label><br>
+            <input type="radio" name="privacy" value="private" id="private">
+            <label for="private">Private</label><br>
+        </div>
+        -->
+        <input type="submit" placeholder="Submit">
+    </form>
+{% endblock %}

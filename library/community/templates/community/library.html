@@ -1,0 +1,25 @@
+{% extends 'community/layout.html' %}
+<!--{% load static %}
+
+{% block style %}
+    <link href="static/library.css" rel="stylesheet">
+{% endblock %}
+-->
+{% block title %}Library{% endblock %}
+
+{% block body %}
+    {% for library in data %}
+        {% if library.title == title %}
+            <h2>{{library.title}}</h2>
+            <p>{{library.description}}</p>
+        {% endif %}
+    {% endfor %}
+    <h3>Books</h3>
+    <ul>
+        {% for book in books %}
+            <li>{{ book }}</li>
+        {% empty %}
+            <p>No books yet!</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

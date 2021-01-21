@@ -1,0 +1,21 @@
+{% extends 'community/layout.html' %}
+
+{% block title %} Home {% endblock %}
+
+
+{% block style %}
+    <link href="static/community/index.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %} 
+    <ul>
+        <h1>Welcome!</h1><br>
+        {% for library in list %}
+                <div id="list-item">
+                    <h4><a href="/{{library.title}}">{{ library.title }}</a></h4>
+                    <p>{{ library.description }}</p>
+                    <p> Status: {{ library.privacy }}</p>
+                </div>
+        {% endfor %}
+    </ul>
+{% endblock %}
